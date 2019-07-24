@@ -10,4 +10,52 @@ import './css/base.scss';
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
 
-console.log('This is the JavaScript entry file - your code begins here.');
+
+import './css/base.scss';
+
+
+//fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
+fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
+  .then(response => response.json())
+  .then(parsedData => getBookingsData(parsedData))
+  .catch(err => console.error(err));
+
+  fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
+  .then(response => response.json())
+  .then(parsedData => getUsersData(parsedData))
+  .catch(err => console.error(err));
+
+  fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
+  .then(response => response.json())
+  .then(parsedData => getRoomsData(parsedData))
+  .catch(err => console.error(err));
+
+  fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices')
+  .then(response => response.json())
+  .then(parsedData => getRoomServicesData(parsedData))
+  .catch(err => console.error(err));
+
+  function getUsersData(users) {
+    // let clue = new Clue(info);
+    // boards = clue.makeBoardObject();
+    console.log(users);
+  };
+
+  function getBookingsData(booking) {
+    // let clue = new Clue(info);
+    // boards = clue.makeBoardObject();
+    console.log(booking);
+  };
+
+  function getRoomsData(rooms) {
+    // let clue = new Clue(info);
+    // boards = clue.makeBoardObject();
+    console.log(rooms);
+  };
+
+  function getRoomServicesData(roomServices) {
+    // let clue = new Clue(info);
+    // boards = clue.makeBoardObject();
+    console.log(roomServices);
+  };
+ 
