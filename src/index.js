@@ -12,9 +12,8 @@ import './images/turing-logo.png'
 
 
 import './css/base.scss';
+import Bookings from './Bookings';
 
-
-//fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/jeopardy/data')
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   .then(response => response.json())
   .then(parsedData => getBookingsData(parsedData))
@@ -36,26 +35,47 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   .catch(err => console.error(err));
 
   function getUsersData(users) {
-    // let clue = new Clue(info);
-    // boards = clue.makeBoardObject();
+   
     console.log(users);
   };
 
-  function getBookingsData(booking) {
-    // let clue = new Clue(info);
-    // boards = clue.makeBoardObject();
-    console.log(booking);
+  function getBookingsData(bookingData) {
+    let bookings = new Bookings(bookingData);
+   
+    console.log(bookings.getTotalBookings());
+
+   // return bookings;
   };
 
   function getRoomsData(rooms) {
-    // let clue = new Clue(info);
-    // boards = clue.makeBoardObject();
+ 
     console.log(rooms);
   };
 
   function getRoomServicesData(roomServices) {
-    // let clue = new Clue(info);
-    // boards = clue.makeBoardObject();
-    console.log(roomServices);
-  };
  
+    console.log(roomServices);
+    return roomServices;
+  };
+
+  // thing1 = fetch('');
+  // thing1 = fetch('');
+  // thing1 = fetch('');
+  // thing1 = fetch('');
+
+  // let myHotel;
+
+  // Promise.all[things 1-4];
+  // .then( myHotel = new Hotel(promise))
+  // .then (myHotel.open())
+  // 
+  // open(){ 
+  // this.customers = users.forEach {
+  //   this.customers.push( new Customer(id, name, bookings, rmService)
+  // }
+  // 
+  // hotel.currentCustomer
+
+  // let bookings = getBookingsData(); 
+  // console.log(Object.values(bookings.bookings));
+
