@@ -13,7 +13,12 @@ import './images/turing-logo.png'
 
 import './css/base.scss';
 import Bookings from './Bookings';
+import Room from './Room';
+import RoomRepo from './RoomRepo'
+import domUpdates from './domUpdates.js';
 
+var roomData;
+var bookingData;
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   .then(response => response.json())
@@ -40,18 +45,18 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
     console.log(users);
   };
 
-  function getBookingsData(bookingData) {
-    let bookings = new Bookings(bookingData);
-   
+  function getBookingsData(bData) {
+    bookingData = bData;
+    let bookings = new Bookings(bData);
     console.log(bookings.getTotalBookingsCustomer(34));
     console.log(bookings.getTotalBookingsDate("2019/07/25"));
-
-   // return bookings;
   };
 
   function getRoomsData(rooms) {
- 
     console.log(rooms);
+    roomData = rooms;
+    // roomRepo2 = new RoomRepo(roomData);
+    // console.log('roomRepo2 is ', roomRepo2);
   };
 
   function getRoomServicesData(roomServices) {
@@ -59,7 +64,32 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
     console.log(roomServices);
     return roomServices;
   };
+ 
+ // const roomRepo = new RoomRepo(roomData);
 
+  $(document).ready(function() {
+    $('.tabs .tab-links a').on('click', function(e) {
+      var currentAttrValue = $(this).attr('href');
+  
+      // Show/Hide Tabs
+      $('.tabs ' + currentAttrValue).show().siblings().hide();
+  
+      // Change/remove current tab to active
+      $(this).parent('li').addClass('active').siblings().removeClass('active');
+      const roomRepo = new RoomRepo(roomData);
+      // $('#rooms-available').delay(2000).text(roomRepo.totalRoomsAvailableDate("2019/07/29"));
+      $('.steps-container').delay(1000).show();
+      $('#rooms-available').text(roomRepo.totalRoomsAvailableDate("2019/07/29", bookingData));
+      $('#total-revenue').text(roomRepo.getRoomRevenueDate("2019/07/29", bookingData));
+      $('#percent-occupied').text((roomRepo.getPercentRoomsOccupied("2019/07/29", bookingData)) * 100);
+      e.preventDefault();
+    });
+    //$('.steps-container').hide();
+    $('#steps-container__main').hide();
+    $('#tab1').hide();
+    
+ 
+  });
   // thing1 = fetch('');
   // thing1 = fetch('');
   // thing1 = fetch('');

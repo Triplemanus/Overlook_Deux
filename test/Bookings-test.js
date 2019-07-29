@@ -40,7 +40,7 @@ describe('Booking', function() {
   });
 
   it('Should return date with most bookings', function () {
-    expect(booking.getMostPopularBookingDate()).to.deep.equal("2019/10/19")
+    expect(booking.getMostPopularBookingDate()).to.deep.equal("2019/09/01")
   })
 
 

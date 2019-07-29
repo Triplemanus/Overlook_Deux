@@ -60,6 +60,16 @@ userID: 4,
 date: "2019/09/29",
 roomNumber: 34
 },
+{
+  userID: 4,
+  date: "2019/10/19",
+  roomNumber: 12
+},
+{
+  userID: 25,
+  date: "2019/09/01",
+  roomNumber: 44
+}
 ]};
 
 export default bookingsData;

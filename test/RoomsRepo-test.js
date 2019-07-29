@@ -27,14 +27,12 @@ describe('RoomRepo', function() {
     expect(roomRepo.totalRoomsAvailableDate("2019/10/19")).to.equal(14);
   });
 
-  it('should return all revenue for a given date', function() {
+  it.skip('should return all revenue for a given date', function() {
     expect(roomRepo.getAllRevenueDate()).to.equal(350.34);
   });
 
   it('should return percentage of rooms occupied for a given date', function() {
     expect(roomRepo.getPercentRoomsOccupied('2019/10/19')).to.equal(.07);
   });
-
- 
 
 });

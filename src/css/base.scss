@@ -1,6 +1,152 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 $primary-background: rgb(74, 52, 82);
+$active-tab-background: rgb(221, 220, 220);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Oxygen, sans-serif;
+  font-weight: 300;
+}
+
 
 body {
   background-color: $primary-background;
+  display: flex;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  margin-left: 320px;
+}
+
+/* ----- sidebar ------ */
+
+aside {
+  box-shadow: 0 0 10 10 black;
+  height: 100vh;
+  width: 320px;
+  border: gray 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #51768C;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.aside__logo {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.aside__logo-fit {
+  font-weight: 700;
+}
+
+.aside__welcome {
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+.aside__date {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.aside-user-info-container {
+  margin-top: 50px;
+  width: 90%;
+}
+
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.user-label {
+  border-bottom: 1px solid lightgray;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+
+.user-info {
+  font-size: 14px;
+}
+
+/* widget */
+
+
+.widget {
+  border: 1px solid gray;
+  height: auto;
+  width: 95%;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #fff;
+}
+
+/*----- Tabs -----*/
+.tabs {
+	width:100%;
+	display:inline-block;
+}
+
+/*----- Tab Links -----*/
+/* Clearfix */
+	.tab-links:after {
+	display:block;
+	clear:both;
+	content:'';
+}
+
+.tab-links li {
+	margin:0px 5px;
+	float:left;
+	list-style:none;
+}
+
+.tab-links a {
+	padding:9px 15px;
+	display:inline-block;
+	border-radius:3px 3px 0px 0px;
+	background:#7FB5DA;
+	font-size:16px;
+	font-weight:600;
+	color:#4c4c4c;
+	transition:all linear 0.15s;
+}
+
+.tab-links a:hover {
+	background:#a7cce5;
+	text-decoration:none;
+}
+
+li.active a, li.active a:hover {
+	background:$active-tab-background;
+	color:#4c4c4c;
+}
+
+/*----- Content of Tabs -----*/
+.tab-content {
+  padding:15px;
+  height: 100%;
+	border-radius:3px;
+	box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+	background: $active-tab-background;
+}
+
+.tab {
+  display:none;
+  height: 10em;
+}
+
+.tab.active {
+	display:block;
 }

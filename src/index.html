@@ -1,10 +1,89 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+      <meta charset="UTF-8">
+    <title>Under OverLook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   </head>
   <body>
-    <h1>Overlook Lookover</h1>
+    <aside>
+      <h1 class="aside__logo orange">Hotel Under<span class="aside__logo-fit">LOOK</span></h1>
+      <h2 class="aside__welcome">Welcome, Guest<span class="aside__welcome-name"></span>!</h2>
+      <h2 class="aside__date"></h2>
+      <figure class="aside-user-info-container">
+        <section class="aside__fullname-container user-info-container">
+          <label class="aside__fullname-label user-label">NAME</label>
+          <h3 class="aside__fullname user-info">Wiley E. Coyote</h3>
+        </section>
+        <section class="aside__address-container user-info-container">
+          <label class="aside__address-label user-label">ADDRESS</label>
+          <h3 class="aside__address user-info">usersaddress</h3>
+        </section>
+        <section class="aside__email-container user-info-container">
+          <label class="aside__email-label user-label">E-MAIL</label>
+          <h3 class="aside__email user-info">usersemail</h3>
+        </section>
+        <section class="aside__stride-length-container user-info-container">
+          <label class="aside__stride-length-label user-label">STRIDE LENGTH</label>
+          <h3 class="aside__stride-length user-info">stridelength</h3>
+        </section>
+      </figure>
+    </aside>
+    <main>
+      <div class="tabs">
+        <ul class="tab-links">
+          <li class="active"><a href="#tab1">Home</a></li>
+          <li><a href="#tab2">Rooms</a></li>
+          <li><a href="#tab3">Orders</a></li>
+          <li><a href="#tab4">Customer</a></li>
+        </ul>
+      
+        <div class="tab-content">
+          <div id="tab1" class="tab active">
+              <p>Tab #1 content goes here!</p>
+              <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
+          </div>
+      
+          <div id="tab2" class="tab">
+              <section class="main__column-one">
+                  <section class="steps-container" id="steps-container__main">
+                    <figure class="steps__header-container widget green-b">
+                        <h3 class="steps__header-input widget-main-header">Number of Rooms Available: <span id="rooms-available" class="rooms-available__main"></span></h3>
+                    </figure>
+                    <figure class="steps__daily-goal-container widget green">
+                        <h3 class="steps__daily-goal-header widget-header">Total Revenue: <span id="total-revenue" class="total-revenue__main"></span></h3>
+                        <!-- <table class="steps__daily-goal-table">
+                            <tr>
+                              <th class="steps__daily-goal-input"></th>
+                              <th class="steps__daily-goal-input"></th>
+                            </tr>
+                            <tr>
+                              <td class="steps__daily-goal-input"><span class="user-input your-step-goal">8000</span><span class="unit">steps</span></td>
+                              <td class="steps__daily-goal-input"><span class="user-input others-step-goal">9000</span><span class="unit">steps</span></td>
+                            </tr>
+                          </table> -->
+                    </figure>
+                    <figure class="steps__header-container widget green-b">
+                        <h3 class="steps__daily-goal-header widget-header">Occupancy: <span id="percent-occupied" class="percent-occupied__main"></span>%</h3>
+                    </figure>
+                  </section>
+                </section>
+          </div>
+      
+          <div id="tab3" class="tab">
+            <p>Tab #3 content goes here!</p>
+            <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
+          </div>
+      
+          <div id="tab4" class="tab">
+            <p>Tab #4 content goes here!</p>
+            <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <!-- <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px"> -->
 
