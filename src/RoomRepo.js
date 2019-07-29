@@ -1,6 +1,6 @@
 // import domUpdates from './domUpdates.js';
 import Bookings from '../src/Bookings';
-import bookingsData from '../data/BookingsData';
+//import bookingsData from '../data/BookingsData';
 
 class RoomRepo {
   constructor (roomData) {
@@ -18,9 +18,10 @@ class RoomRepo {
 
   }
 
-  totalRoomsAvailableDate(date) {
+  totalRoomsAvailableDate(date, bookingsData) {
     let bookings = new Bookings(bookingsData);
     let totalBookings = bookings.getTotalBookingsDate(date);
+    //console.log('roomRepo is ', this.data);
     let roomsAvailable = this.data.rooms.reduce((roomsAvail, room) => {
       roomsAvail ++;
       return roomsAvail;
@@ -36,13 +37,20 @@ class RoomRepo {
     return roomsAvailable;
   }
 
-  getPercentRoomsOccupied(date) {
-    return Number.parseFloat((1 - this.totalRoomsAvailableDate(date) / this.totalRoomsAvailable()).toFixed(2));
+  getPercentRoomsOccupied(date, bookingData) {
+    return Number.parseFloat((1 - this.totalRoomsAvailableDate(date, bookingData) / this.totalRoomsAvailable()).toFixed(2));
   }
 
-  getRoomRevenueDate(date) {
+  getRoomRevenueDate(date, bookingsData) {
+    let bookings = new Bookings(bookingsData);
+    let totalBookings = bookings.getTotalBookingsDate(date);
+   // console.log('totlaBookins by date ', totalBookings);
     const roomsRevenue = this.data.rooms.reduce((roomsRev, room) => {
-      roomsRev ++;
+      totalBookings.forEach(element => {
+        if(element.roomNumber === room.number) {
+          roomsRev += room.costPerNight;
+        }
+      })
       return roomsRev;
     }, 0)
     return roomsRevenue;
