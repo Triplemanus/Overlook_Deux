@@ -1,18 +1,20 @@
-import domUpdates from './domUpdates.js';
-import rooms from './data/testData.js';
+// import domUpdates from './domUpdates.js';
+// import RoomsData from './data/RoomsData.js';
 
 class Room {
-  constructor (number, roomType, bidet, bedSize, numBeds, costPerNight) {
-    this.number = number;
-    this.roomType = roomType
-    this.hasBidet = bidet || false;
-    this.bedSize = bedSize || 'Queen';
-    this.numBeds = numBeds || 1;
-    this.costPerNight = costPerNight;
+  constructor (roomData) {
+       this.data = roomData,
+       this.isBooked = false
+    // this.number = number;
+    // this.roomType = roomType
+    // this.hasBidet = bidet || false;
+    // this.bedSize = bedSize || 'Queen';
+    // this.numBeds = numBeds || 1;
+    // this.costPerNight = costPerNight;
   }
 
   getRoomInfo(roomNumber) {
-    return this;
+    return this.data.rooms.find(rooms => rooms.number === roomNumber);
   }
   bookRoom(userID) {
 
@@ -30,8 +32,15 @@ class Room {
 
   }
 
+  getBookedStatus(roomNum) {
+    return this.isBooked;
+  }
+
+  setRoomStatus(roomNum) {
+    return this.isBooked = true;
+  }
   fetchRoomData() {
-    let roomData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1903/rooms/rooms')
+    let roomData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
   .then(function(response) {
     return response.json()
   })

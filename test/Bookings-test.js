@@ -32,16 +32,16 @@ describe('Booking', function() {
   });
 
   it('should return all bookings for a given customer', function () {
-
+    
+    expect(booking.getTotalBookingsCustomer(34)).to.deep.equal([{userID: 34, date: "2019/09/05", roomNumber: 26}]);
   })
-  // it('should start with no clues', function() {
-  //   expect(round.currentClue).to.equal(null)
-  // });
+  it('should return all bookings for a given day', function() {
+    expect(booking.getTotalBookingsDate("2019/09/01")).to.deep.equal([{userID: 9, date: "2019/09/01", roomNumber: 41}, {userID: 25, date: "2019/09/01", roomNumber: 44}]);
+  });
 
-  // it('should be able to begin the turn', function() {
-  //   round.beginTurn();
-  //   expect(round.turnTracker).to.equal(1);
-  // });
+  it('Should return date with most bookings', function () {
+    expect(booking.getMostPopularBookingDate()).to.deep.equal("2019/10/19")
+  })
 
 
 //   it('should return a string with any punctuation removed', function() {

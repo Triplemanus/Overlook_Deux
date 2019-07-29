@@ -14,6 +14,7 @@ import './images/turing-logo.png'
 import './css/base.scss';
 import Bookings from './Bookings';
 
+
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   .then(response => response.json())
   .then(parsedData => getBookingsData(parsedData))
@@ -42,7 +43,8 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   function getBookingsData(bookingData) {
     let bookings = new Bookings(bookingData);
    
-    console.log(bookings.getTotalBookings());
+    console.log(bookings.getTotalBookingsCustomer(34));
+    console.log(bookings.getTotalBookingsDate("2019/07/25"));
 
    // return bookings;
   };

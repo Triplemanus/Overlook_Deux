@@ -1,7 +1,7 @@
 class Bookings {
   constructor (bookingData) {
     this.data = bookingData;
-    this.customerID = 4;
+    this.customerID = 34;
     // this.userID = userID;
     // this.roomNumber = bookingData.roomNumber;
     // this.date = bookingData.date;
@@ -15,21 +15,32 @@ class Bookings {
 
   }
 
-  getTotalBookings(customerID) {
-    
-    let allBookings = this.data.bookings.filter(booking => {
+  getTotalBookingsCustomer(customerID) {
+    let allCustomerBookings = this.data.bookings.filter(booking => {
       if(booking.userID === customerID) return booking;
     });
-    console.log('allBookings is', allBookings);
-    return allBookings;
+    return allCustomerBookings;
   }
-  //   let someThing =  totalBookings.map(bookings => {
-  //     console.log('bookings userID is: ', bookings.userID);
-  //    //  if (bookings.userID === 4) return bookings;
-  //  // return totalBookings[0];
-  //   });
-  //   console.log('something is: ', someThing);
-  //   return someThing;
+
+  getTotalBookingsDate(date) {
+    let allDateBookings = this.data.bookings.filter(booking => {
+      if(booking.date === date) return booking;
+    });
+    return allDateBookings;
+  }
+
+  getMostPopularBookingDate() {
+    const mostPopularBooking = bookings.reduce((mostBookings, booking) => {
+      if(!booking.date) {
+        mostBookings.date = 1;
+      } else {
+        mostBookings.date ++
+      }
+      return mostBookings;
+    }, {});
+    return mostPopularBooking;
+  }
+  
 }
 
 export default Bookings;

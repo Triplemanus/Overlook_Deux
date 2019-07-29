@@ -1,4 +1,4 @@
-{
+const bookingsData = {
 bookings: [
 {
 userID: 4,
