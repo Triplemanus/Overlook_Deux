@@ -53,7 +53,7 @@ class RoomRepo {
       })
       return roomsRev;
     }, 0)
-    return roomsRevenue;
+    return Number.parseFloat((roomsRevenue).toFixed(2));
   }
   getAllRevenueDate(){
 

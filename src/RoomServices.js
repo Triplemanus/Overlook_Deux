@@ -41,7 +41,7 @@ class RoomServices {
       if (service.date === date ) rsRevenue += service.totalCost;
       return rsRevenue;
     }, 0);
-    return totalRSRevenue;
+    return Number.parseFloat((totalRSRevenue).toFixed(2));
   }
 
   getTotalRoomServicesDate(date) {
