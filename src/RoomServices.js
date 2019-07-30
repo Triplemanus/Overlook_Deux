@@ -1,9 +1,7 @@
 class RoomServices {
   constructor (roomServicesData) {
     this.data = roomServicesData.roomServices
-    // this.userID = userID;
-    // this.food = foodOrder;
-    // this.totalCost = totalCost;
+  
   }
 
   getUserRoomServiceChargesDate(userId, date) {
