@@ -16,9 +16,15 @@ import Bookings from './Bookings';
 import Room from './Room';
 import RoomRepo from './RoomRepo'
 import domUpdates from './domUpdates.js';
+import RoomServices from './RoomServices';
+import User from './Users';
+import UsersRepo from './UsersRepo';
 
 var roomData;
 var bookingData;
+var roomServiceData;
+var userData;
+var dateToday = "2019/07/31"; //For testing only
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   .then(response => response.json())
@@ -41,15 +47,15 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   .catch(err => console.error(err));
 
   function getUsersData(users) {
-   
+   userData = users;
     console.log(users);
   };
 
   function getBookingsData(bData) {
     bookingData = bData;
-    let bookings = new Bookings(bData);
-    console.log(bookings.getTotalBookingsCustomer(34));
-    console.log(bookings.getTotalBookingsDate("2019/07/25"));
+    // let bookings = new Bookings(bData);
+    // console.log(bookings.getTotalBookingsCustomer(34));
+    // console.log(bookings.getTotalBookingsDate("2019/07/25"));
   };
 
   function getRoomsData(rooms) {
@@ -59,10 +65,8 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
     // console.log('roomRepo2 is ', roomRepo2);
   };
 
-  function getRoomServicesData(roomServices) {
- 
-    console.log(roomServices);
-    return roomServices;
+  function getRoomServicesData(rsData) {
+    roomServiceData = rsData;
   };
  
  // const roomRepo = new RoomRepo(roomData);
@@ -70,26 +74,47 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   $(document).ready(function() {
     $('.tabs .tab-links a').on('click', function(e) {
       var currentAttrValue = $(this).attr('href');
-  
+      $('#tab-select-user').text('None selected');
       // Show/Hide Tabs
       $('.tabs ' + currentAttrValue).show().siblings().hide();
   
       // Change/remove current tab to active
       $(this).parent('li').addClass('active').siblings().removeClass('active');
       const roomRepo = new RoomRepo(roomData);
+      const roomServices = new RoomServices(roomServiceData);
+      const user = new User(userData);
+      const userRepo = new UsersRepo(userData);
       // $('#rooms-available').delay(2000).text(roomRepo.totalRoomsAvailableDate("2019/07/29"));
       $('.steps-container').delay(1000).show();
-      $('#rooms-available').text(roomRepo.totalRoomsAvailableDate("2019/07/29", bookingData));
-      $('#total-revenue').text(roomRepo.getRoomRevenueDate("2019/07/29", bookingData));
-      $('#percent-occupied').text((roomRepo.getPercentRoomsOccupied("2019/07/29", bookingData)) * 100);
+      $('#rooms-available').text(roomRepo.totalRoomsAvailableDate(dateToday, bookingData));
+      $('#total-revenue').text(Number.parseFloat(roomRepo.getRoomRevenueDate(dateToday, bookingData) + roomServices.getTotalRoomServiceRevenueDate(dateToday)).toFixed(2));
+      $('#percent-occupied').text((roomRepo.getPercentRoomsOccupied(dateToday, bookingData)) * 100);
       e.preventDefault();
+      domUpdates.updateUserData(user);
+      $('#search-input').keyup((e) => {
+
+        if(!$('#search-input').val()){
+          $('#tab-select-user').text('None selected');
+        } else {
+       $('#tab-select-user').text(userRepo.searchUsersRealtime($('#search-input').val())[0].name);
+        if(e.keyCode == 13)
+          {         console.log('userID is ', userRepo.searchUsersRealtime($('#search-input').val())[0].id);
+          domUpdates.updateUserData(user, userRepo.searchUsersRealtime($('#search-input').val())[0].id)
+          }
+        }
+      });
+      //$('#search-input').on('enter')
+     // $('#tab-select-user').text(userRepo.getAllUserData().name);
     });
-    //$('.steps-container').hide();
+   
     $('#steps-container__main').hide();
     $('#tab1').hide();
     
- 
   });
+
+  function selectUser() {
+
+  };
   // thing1 = fetch('');
   // thing1 = fetch('');
   // thing1 = fetch('');

@@ -1,9 +1,7 @@
 class RoomServices {
   constructor (roomServicesData) {
     this.data = roomServicesData.roomServices
-    // this.userID = userID;
-    // this.food = foodOrder;
-    // this.totalCost = totalCost;
+  
   }
 
   getUserRoomServiceChargesDate(userId, date) {
@@ -41,7 +39,7 @@ class RoomServices {
       if (service.date === date ) rsRevenue += service.totalCost;
       return rsRevenue;
     }, 0);
-    return totalRSRevenue;
+    return Number.parseFloat((totalRSRevenue).toFixed(2));
   }
 
   getTotalRoomServicesDate(date) {
