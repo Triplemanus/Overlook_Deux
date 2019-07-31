@@ -7,7 +7,8 @@ class Bookings {
     // this.date = bookingData.date;
   }
 
-  addRoomBooking() {
+  addRoomBooking(bookingInfo) {
+    
 
   }
 
@@ -39,8 +40,8 @@ class Bookings {
       //console.log('mostBookings is ', mostBookings);
       return mostBookings;
     }, {});
-    const mpbKeys = Object.keys(mostPopularBooking);
-   // console.log('mpbKeys is ', mpbKeys);
+   // const mpbKeys = Object.keys(mostPopularBooking);
+   // console.log('mpbKeys is ', mpbKeys, mostPopularBooking);
 
     // let mostPopularBookingDate = {}
     // for (let [key, value] of Object.entries(mostPopularBooking)) {
@@ -53,17 +54,29 @@ class Bookings {
     //   }
 
     // }
-    const mostPopularBookingDate = Object.keys(mostPopularBooking).reduce((popDate, booking) => {
-      console.log('booking[date], popDate is ', mostPopularBooking[booking], popDate.date);
-      if(mostPopularBooking[booking] > popDate.date) {
-        console.log('Its greater than!');
-        popDate = booking, mostPopularBooking[booking];
+    const mostPopularBookingDate = Object.keys(mostPopularBooking).reduce((popularDate, booking) => {
+    //  console.log('booking[date], popularDate is ', mostPopularBooking[booking], popularDate);
+      if(mostPopularBooking[booking] > popularDate.count) {
+   //     console.log('Its greater than!');
+        popularDate.date = booking;
+        popularDate.count = mostPopularBooking[booking];
       }
-      return popDate;
-    }, {date: 0})
-    return mostPopularBookingDate;
+      return popularDate;
+    }, {date: '2019/01/01', count: 0})
+    return mostPopularBookingDate.date;
   }
   
+  getDateMostRoomsAvailable(bookingData) {
+    const mostRoomsAvailable = bookingData.bookings.reduce((mostDate, date) => {
+      const bookingDate = this.getTotalBookingsDate(date.date);
+        if(bookingDate.length < mostDate.count) {
+          mostDate.date = date.date;
+          mostDate.count = bookingDate.length;
+        }
+      return mostDate;
+    }, {date: '2019/01/01', count: 1000});
+    return mostRoomsAvailable.date;
+  }
 }
 
 export default Bookings;

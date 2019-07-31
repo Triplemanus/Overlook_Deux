@@ -41,6 +41,14 @@ class RoomRepo {
     return Number.parseFloat((1 - this.totalRoomsAvailableDate(date, bookingData) / this.totalRoomsAvailable()).toFixed(2));
   }
 
+  getDateMostRoomsAvailable(bookingsData) {
+    const mostRoomsAvailable = bookingsData.reduce((mostDate, date) => {
+      
+      return mostDate;
+    },);
+    return mostRoomsAvailable;
+  }
+
   getRoomRevenueDate(date, bookingsData) {
     let bookings = new Bookings(bookingsData);
     let totalBookings = bookings.getTotalBookingsDate(date);
