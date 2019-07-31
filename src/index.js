@@ -64,13 +64,9 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
     roomServiceData = rsData;
   };
  
- // const roomRepo = new RoomRepo(roomData);
-//  const roomRepo = new RoomRepo(roomData);
-//  const roomServices = new RoomServices(roomServiceData);
-//  const user = new User(userData);
-//  const userRepo = new UsersRepo(userData);
 
   $(document).ready(function() {
+
     $('.tabs .tab-links a').on('click', function(e) {
       var currentAttrValue = $(this).attr('href');
      
@@ -85,13 +81,27 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
       const userRepo = new UsersRepo(userData);
     
       $('.steps-container').delay(1000).show();
-      $('#rooms-available').text(roomRepo.totalRoomsAvailableDate(dateToday, bookingData));
+
+      /*----Rooms----*/
+      $('#rooms-available').text(roomRepo.totalRoomsAvailableDate(dateToday, bookingData).food);
       $('#total-revenue').text(Number.parseFloat(roomRepo.getRoomRevenueDate(dateToday, bookingData) + roomServices.getTotalRoomServiceRevenueDate(dateToday)).toFixed(2));
       $('#percent-occupied').text((roomRepo.getPercentRoomsOccupied(dateToday, bookingData)) * 100);
       e.preventDefault();
-      domUpdates.updateUserData(user);
-      $('#search-input').keyup((e) => {
+      //domUpdates.updateUserData(user);
 
+        /*----Orders----*/
+      if(currentAttrValue === '#tab3'){
+        console.log('tab3 Active!', $('#tab3'));
+        domUpdates.updateDailyRoomServices(dateToday, roomServiceData, roomServices);
+      } else {
+        $('#room-service-orders').html(' ');
+      }
+      console.log($('.tabs ' + currentAttrValue).hasClass('active'));
+      console.log('currentAttrValue', currentAttrValue);
+      
+
+      /*-----Users----*/
+      $('#search-input').keyup((e) => {
         if(!$('#search-input').val()){
           $('#tab-select-user').text('None selected');
         } else {
@@ -116,8 +126,7 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
             domUpdates.updateUserData(user, userID.id)
           }
       })
-      //$('#search-input').on('enter')
-     // $('#tab-select-user').text(userRepo.getAllUserData().name);
+   
     });
    
     $('#steps-container__main').hide();

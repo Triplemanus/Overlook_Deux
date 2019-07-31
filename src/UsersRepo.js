@@ -4,9 +4,7 @@ class UsersRepo {
   }
 
   searchUsersRealtime(subUserString){
-   // var subString = searchBox.value;
-    let users = this.getAllUserData();
-    
+    let users = this.getAllUserData(); 
     let selectedUsers = users.filter(user => user.name.toLowerCase().includes(subUserString.toLowerCase()));
     console.log('selectedUser is', selectedUsers);
    return selectedUsers;

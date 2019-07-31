@@ -42,11 +42,12 @@ class RoomServices {
     return Number.parseFloat((totalRSRevenue).toFixed(2));
   }
 
-  getTotalRoomServicesDate(date) {
+  getTotalRoomServicesDate(date, data) {
     const totalRoomServices = this.data.reduce((roomServices, service) => {
       if (service.date === date ) roomServices.push(service);
       return roomServices;
     }, []);
+    console.log('roomServices are ', totalRoomServices);
     return totalRoomServices;
   }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-      <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>Under OverLook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
@@ -42,47 +42,59 @@
       
         <div class="tab-content">
           <div id="tab1" class="tab active">
-              <p>Tab #1 content goes here!</p>
-              <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
+            <p>Tab #1 content goes here!</p>
+            <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
           </div>
       
           <div id="tab2" class="tab">
-              <section class="main__column-one">
-                  <section class="steps-container" id="steps-container__main">
-                    <figure class="steps__header-container widget green-b">
-                        <h3 class="steps__header-input widget-main-header">Number of Rooms Available: <span id="rooms-available" class="rooms-available__main"></span></h3>
-                    </figure>
-                    <figure class="steps__daily-goal-container widget green">
-                        <h3 class="steps__daily-goal-header widget-header">Total Revenue: <span id="total-revenue" class="total-revenue__main"></span></h3>
-                        <!-- <table class="steps__daily-goal-table">
-                            <tr>
-                              <th class="steps__daily-goal-input"></th>
-                              <th class="steps__daily-goal-input"></th>
-                            </tr>
-                            <tr>
-                              <td class="steps__daily-goal-input"><span class="user-input your-step-goal">8000</span><span class="unit">steps</span></td>
-                              <td class="steps__daily-goal-input"><span class="user-input others-step-goal">9000</span><span class="unit">steps</span></td>
-                            </tr>
-                          </table> -->
-                    </figure>
-                    <figure class="steps__header-container widget green-b">
-                        <h3 class="steps__daily-goal-header widget-header">Occupancy: <span id="percent-occupied" class="percent-occupied__main"></span>%</h3>
-                    </figure>
-                  </section>
+            <section class="main__column-one">
+                <section class="steps-container" id="steps-container__main">
+                  <figure class="steps__header-container widget green-b">
+                    <h3 class="steps__header-input widget-main-header">Number of Rooms Available: <span id="rooms-available" class="rooms-available__main"></span></h3>
+                  </figure>
+                  <figure class="steps__daily-goal-container widget green">
+                    <h3 class="steps__daily-goal-header widget-header">Total Revenue: <span id="total-revenue" class="total-revenue__main"></span></h3>
+                    <!-- <table class="steps__daily-goal-table">
+                          <tr>
+                            <th class="steps__daily-goal-input"></th>
+                            <th class="steps__daily-goal-input"></th>
+                          </tr>
+                          <tr>
+                            <td class="steps__daily-goal-input"><span class="user-input your-step-goal">8000</span><span class="unit">steps</span></td>
+                            <td class="steps__daily-goal-input"><span class="user-input others-step-goal">9000</span><span class="unit">steps</span></td>
+                          </tr>
+                        </table> -->
+                  </figure>
+                  <figure class="steps__header-container widget green-b">
+                    <h3 class="steps__daily-goal-header widget-header">Occupancy: <span id="percent-occupied" class="percent-occupied__main"></span>%</h3>
+                  </figure>
                 </section>
-              </div>      
+              </section>
+            </div>      
           <div id="tab3" class="tab">
-            <p>Tab #4 content goes here!</p>
-            <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
+            <!-- <section class="main__column-one"> -->
+              <section class="steps-container" id="steps-container__main">
+                <figure class="steps__daily-goal-container widget green">
+                  <h3 class="steps__daily-goal-header widget-header">Room Service Orders for Today: <span id="total-revenue" class="total-revenue__main"></span></h3>
+                </figure>
+                <figure class="steps__header-container widget green-b">
+                  <h3 class="steps__header-input widget-main-header"><span id="room-service-orders" class="room-service-orders__main"></span></h3>
+                </figure>                
+                <figure class="steps__header-container widget green-b">
+                  <h3 class="user-header widget-header">Select Date: <span id="tab-select-rsdate" class="tab-select-rsdate__main"></span></h3>
+                  <input id="search-input" placeholder="20019/01/01" type="text" name="" value="">
+                </figure>
+              </section>
+            <!-- </section> -->
           </div>
           <figure id="tab4" class="tab">
-              <h3 class="user-header widget-header">Occupant: <span id="tab-user-info" class="tab-user-info__main"></span></h3>
-              <h3 class="user-header widget-header">Select Customer: <span id="tab-select-user" class="tab-select-user__main"></span></h3>
-              <input id="search-input" placeholder="   Search ideas" type="text" name="" value="">
+            <h3 class="user-header widget-header">Occupant: <span id="tab-user-info" class="tab-user-info__main"></span></h3>
+            <h3 class="user-header widget-header">Select Customer: <span id="tab-select-user" class="tab-select-user__main"></span></h3>
+            <input id="search-input" placeholder="   Search ideas" type="text" name="" value="">
 
-              <h3 class="new-user-header widget-header"> <span id="tab-new-user-info" class="tab-new-user-info__main"></span></h3>
-              <h3 class="new-user-header widget-header">Enter new customer: <span id="tab-new-user" class="tab-new-user__main"></span></h3>
-              <input id="new-user-input" placeholder="   Add new user" type="text" name="" value="">
+            <h3 class="new-user-header widget-header"> <span id="tab-new-user-info" class="tab-new-user-info__main"></span></h3>
+            <h3 class="new-user-header widget-header">Enter new customer: <span id="tab-new-user" class="tab-new-user__main"></span></h3>
+            <input id="new-user-input" placeholder="   Add new user" type="text" name="" value="">
           </figure>
         </div>
       </div>
