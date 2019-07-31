@@ -112,8 +112,8 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
         if(e.keyCode == 13)
           {
             console.log('new user is ', $('#new-user-input').val());
-            let userID = domUpdates.addNewUser(user, $('#new-user-input').val());
-            domUpdates.updateUserData(user, userID.id - 1)
+            let userID = domUpdates.createNewUser(user, $('#new-user-input').val());
+            domUpdates.updateUserData(user, userID.id)
           }
       })
       //$('#search-input').on('enter')

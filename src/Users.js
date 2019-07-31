@@ -6,7 +6,7 @@ class User {
   addNewUser(userName) {
     let userIDs = this.data.map(users => users.id);
     this.data.push({id : (Number.parseInt(userIDs.pop())) + 1, name: userName});
-    return {id : (Number.parseInt(userIDs.pop())) + 1, name: userName}
+    return this.data[this.data.length - 1];
   }
 
   getUserData(userID) {

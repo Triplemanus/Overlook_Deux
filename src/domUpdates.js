@@ -9,7 +9,7 @@ let domUpdates = {
     //$('.aside__welcome-name').text(user.getUserData(user).name.split(' ')[0] );
   },
 
-  addNewUser(user, userName) {
+  createNewUser(user, userName) {
     let newUser = user.addNewUser(userName);
     console.log('newUser is ', newUser.name, newUser.id);
     return newUser;
