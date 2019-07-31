@@ -1,6 +1,6 @@
-# Jeopardy!
+# Hotel underLOOK
 
-Our version of America's Favorite Game Show features: 
+Your one stop access to the important information you need to operate the best hotel in the tri-stae area!
 
 - Trivia data accessed and utilized with a Fetch API, 
 - Gameplay implemented using JavaScript classes, subclasses, objects and array prototype methods
