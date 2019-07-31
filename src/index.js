@@ -53,16 +53,11 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
 
   function getBookingsData(bData) {
     bookingData = bData;
-    // let bookings = new Bookings(bData);
-    // console.log(bookings.getTotalBookingsCustomer(34));
-    // console.log(bookings.getTotalBookingsDate("2019/07/25"));
   };
 
   function getRoomsData(rooms) {
     console.log(rooms);
     roomData = rooms;
-    // roomRepo2 = new RoomRepo(roomData);
-    // console.log('roomRepo2 is ', roomRepo2);
   };
 
   function getRoomServicesData(rsData) {
@@ -70,11 +65,15 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   };
  
  // const roomRepo = new RoomRepo(roomData);
+//  const roomRepo = new RoomRepo(roomData);
+//  const roomServices = new RoomServices(roomServiceData);
+//  const user = new User(userData);
+//  const userRepo = new UsersRepo(userData);
 
   $(document).ready(function() {
     $('.tabs .tab-links a').on('click', function(e) {
       var currentAttrValue = $(this).attr('href');
-      $('#tab-select-user').text('None selected');
+     
       // Show/Hide Tabs
       $('.tabs ' + currentAttrValue).show().siblings().hide();
   
@@ -84,7 +83,7 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
       const roomServices = new RoomServices(roomServiceData);
       const user = new User(userData);
       const userRepo = new UsersRepo(userData);
-      // $('#rooms-available').delay(2000).text(roomRepo.totalRoomsAvailableDate("2019/07/29"));
+    
       $('.steps-container').delay(1000).show();
       $('#rooms-available').text(roomRepo.totalRoomsAvailableDate(dateToday, bookingData));
       $('#total-revenue').text(Number.parseFloat(roomRepo.getRoomRevenueDate(dateToday, bookingData) + roomServices.getTotalRoomServiceRevenueDate(dateToday)).toFixed(2));
@@ -96,13 +95,27 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
         if(!$('#search-input').val()){
           $('#tab-select-user').text('None selected');
         } else {
-       $('#tab-select-user').text(userRepo.searchUsersRealtime($('#search-input').val())[0].name);
-        if(e.keyCode == 13)
-          {         console.log('userID is ', userRepo.searchUsersRealtime($('#search-input').val())[0].id);
-          domUpdates.updateUserData(user, userRepo.searchUsersRealtime($('#search-input').val())[0].id)
+          let userSearch = userRepo.searchUsersRealtime($('#search-input').val());
+          if(userSearch.length) {
+            $('#tab-select-user').text(userSearch[0].name);
+            if(e.keyCode == 13)
+              { 
+                console.log('userID is ', userRepo.searchUsersRealtime($('#search-input').val())[0].id);
+                domUpdates.updateUserData(user, userRepo.searchUsersRealtime($('#search-input').val())[0].id)
+              }
+          } else {
+            $('#tab-select-user').text('No user exists with that name');
           }
         }
       });
+      $('#new-user-input').keyup((e) => {
+        if(e.keyCode == 13)
+          {
+            console.log('new user is ', $('#new-user-input').val());
+            let userID = domUpdates.addNewUser(user, $('#new-user-input').val());
+            domUpdates.updateUserData(user, userID.id - 1)
+          }
+      })
       //$('#search-input').on('enter')
      // $('#tab-select-user').text(userRepo.getAllUserData().name);
     });

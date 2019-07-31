@@ -7,7 +7,8 @@ class Bookings {
     // this.date = bookingData.date;
   }
 
-  addRoomBooking() {
+  addRoomBooking(bookingInfo) {
+    
 
   }
 
