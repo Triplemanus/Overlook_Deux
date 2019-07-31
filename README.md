@@ -33,6 +33,8 @@ The test results will output to the terminal.
 
 ## Screenshots
 
+<img width="1440" alt="Screen Shot 2019-07-31 at 8 35 15 AM" src="https://user-images.githubusercontent.com/17992280/62222701-08185700-b371-11e9-9291-b9740b85191c.png">
+
 ## Developers
 
 * Jon O'Drobinak ([Triplemanus](https://github.com/Triplemanus))
