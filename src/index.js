@@ -79,15 +79,26 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
       const roomServices = new RoomServices(roomServiceData);
       const user = new User(userData);
       const userRepo = new UsersRepo(userData);
+      const bookings = new Bookings(bookingData)
     
       $('.steps-container').delay(1000).show();
 
-      /*----Rooms----*/
-      $('#rooms-available').text(roomRepo.totalRoomsAvailableDate(dateToday, bookingData).food);
+      /*----Home----*/
+      $('#rooms-available').text(roomRepo.totalRoomsAvailableDate(dateToday, bookingData));
       $('#total-revenue').text(Number.parseFloat(roomRepo.getRoomRevenueDate(dateToday, bookingData) + roomServices.getTotalRoomServiceRevenueDate(dateToday)).toFixed(2));
       $('#percent-occupied').text((roomRepo.getPercentRoomsOccupied(dateToday, bookingData)) * 100);
       e.preventDefault();
       //domUpdates.updateUserData(user);
+
+      /*-----Rooms------*/
+      if(currentAttrValue === '#tab2'){
+        console.log('tab2 Active!', $('#tab2'));
+        $('#most-popular-date').text(bookings.getMostPopularBookingDate());
+        $('#most-rooms-available').text(bookings.getDateMostRoomsAvailable(bookingData));
+      } else {
+      $('#most-popular-date').html(' ');
+      }
+
 
         /*----Orders----*/
       if(currentAttrValue === '#tab3'){
@@ -98,6 +109,13 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
       }
       console.log($('.tabs ' + currentAttrValue).hasClass('active'));
       console.log('currentAttrValue', currentAttrValue);
+
+      $('#search-room-service-date').click(() => {
+        $('#room-service-orders').html(' ');
+        let roomServiceDate =  $('#search-rsdate').val();
+        domUpdates.updateDailyRoomServices($('#search-rsdate').val(), roomServiceData, roomServices);
+        $('#rs-order-date').text($('#search-rsdate').val());
+      });
       
 
       /*-----Users----*/
@@ -125,12 +143,11 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
             let userID = domUpdates.createNewUser(user, $('#new-user-input').val());
             domUpdates.updateUserData(user, userID.id)
           }
-      })
-   
+      });
     });
    
-    $('#steps-container__main').hide();
-    $('#tab1').hide();
+  //  $('#steps-container__main').hide();
+  //  $('#tab1').hide();
     
   });
 

@@ -23,9 +23,6 @@ let domUpdates = {
       const rsTotalCoat = (parseFloat(element.totalCost)).toFixed(2) + ' \n';
       $('#room-service-orders').append(`Food:  ${rsFood}    Cost: ${rsTotalCoat.replace("\n", "<br>")}`);
     });  
-    // $('#room-service-orders').html(`Food:  ${rsFood}    Cost: ${rsTotalCoat.replace("\n", "<br>")}` + `Food:  ${rsFood}    Cost: ${rsTotalCoat}`);
-    //$('#room-service-orders').text(`Food:  ${rsFood}    Cost: ${rsTotalCoat}<br>`  + `Food:  ${rsFood}    Cost: ${rsTotalCoat}`);
-    //$('#room-service-orders').text(`Food:  ${rsFood}    Cost: ${rsTotalCoat}`);
   }
   
 }
