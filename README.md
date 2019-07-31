@@ -2,21 +2,24 @@
 
 Your one stop access to the important information you need to operate the best hotel in the tri-stae area!
 
-- Trivia data accessed and utilized with a Fetch API, 
-- Gameplay implemented using JavaScript classes, subclasses, objects and array prototype methods
-- A full testing suite demonstrating the app's test driven development
+## Overview (of underLOOK)
 
-The game allows three contestants to enter their names, select categories and point values from the gameboard, and answer questions one-by-one accumulating or squandering away their hard earned prize money. The infamous Daily Double and Final Jeopardy make their apperance within the program as instances of extended subclasses of the traditional Turn and Round classes respectively. The entire application is packaged using WebPack, tested with Mocha and Chai, and styled with SCSS.   
+The goals of this project included:
+* Utilizing ES6 classes to create instances of the class to be able to call methods upon them and display data on the DOM while communicating between themselves as necessary.
+* Implementing strong TDD principles utilizing the Mocha testing framework and Chai assertion library to build out and test our application.
+* Using array prototype methods to manipulate multiple data files.
+* Deploy an NPM package (Charts.js in this case) to display data on the DOM.
+ 
 
 ## Setup
 
 1. Clone the repo.
-1. Install the game's dependencies from within the cloned directory:
+1. Install the app's dependencies from within the cloned directory:
 
 ```bash
 npm install
 ```
-1. Let the games begin. 
+1. Let the fun begin. 
 
 ## Testing
 
@@ -28,6 +31,9 @@ npm test
 
 The test results will output to the terminal.
 
+## Screenshots
+
 ## Developers
 
-Jon O'Drobinak <jodrobinak@gmail.com>
+* Jon O'Drobinak ([Triplemanus](https://github.com/Triplemanus))
+
