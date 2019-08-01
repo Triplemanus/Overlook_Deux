@@ -30,7 +30,20 @@ class RoomServices {
     return userRSDatesCharges;
   }
 
-  orderRoomServices() {
+  getUserRoomServiceDataDate(userId, date) {
+    const userRoomServiceData = this.data.reduce((allChargesData, services) => {
+      if(services.date === date && services.userID === userId){
+        allChargesData.push([services.date, services.food, services.totalCost])
+      } 
+      return allChargesData;
+    },[]);
+    console.log('roomServices are ', userRoomServiceData);
+    return userRoomServiceData;
+  }
+
+  orderRoomServices(userID, order) {
+    let rsOrder = [{userID, order}]
+    this.data.push(rsOrder);
 
   }
   
@@ -47,7 +60,7 @@ class RoomServices {
       if (service.date === date ) roomServices.push(service);
       return roomServices;
     }, []);
-    console.log('roomServices are ', totalRoomServices);
+   
     return totalRoomServices;
   }
 }

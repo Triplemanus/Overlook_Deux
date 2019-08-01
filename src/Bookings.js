@@ -7,9 +7,13 @@ class Bookings {
     // this.date = bookingData.date;
   }
 
-  addRoomBooking(bookingInfo) {
-    
-
+  addRoomBooking(userID, date, roomNumber) {
+    let newBooking = [{userID, date, roomNumber}];
+    //let newBooking = [{userID: userID, date: date, roomNumber: roomNumber}];  
+    this.data.push(newBooking);
+    console.log('newBooking', newBooking);
+    console.log('bookingData is', this.data[this.data.length - 1]);
+      return newBooking
   }
 
   deleteRoomBooking() {

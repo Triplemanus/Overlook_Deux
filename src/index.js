@@ -24,7 +24,7 @@ var roomData;
 var bookingData;
 var roomServiceData;
 var userData;
-var dateToday = "2019/07/31"; //For testing only
+var dateToday = "2019/08/01"; //For testing only
 
 fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   .then(response => response.json())
@@ -92,7 +92,7 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
 
       /*-----Rooms------*/
       if(currentAttrValue === '#tab2'){
-        console.log('tab2 Active!', $('#tab2'));
+       // console.log('tab2 Active!', $('#tab2'));
         $('#most-popular-date').text(bookings.getMostPopularBookingDate());
         $('#most-rooms-available').text(bookings.getDateMostRoomsAvailable(bookingData));
       } else {
@@ -111,11 +111,16 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
           }
       });
 
-
+      let activeUser;
         /*----Orders----*/
-      if(currentAttrValue === '#tab3'){
+      if(currentAttrValue === '#tab3' && !activeUser){
+        console.log('activeUser', activeUser);
+        $('#room-service-orders').html(' ');
         domUpdates.updateDailyRoomServices(dateToday, roomServiceData, roomServices);
       } else {
+        if(activeUser) {
+
+        }
         $('#room-service-orders').html(' ');
       }
       console.log($('.tabs ' + currentAttrValue).hasClass('active'));
@@ -140,7 +145,15 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
             if(e.keyCode == 13)
               { 
                 console.log('userID is ', userRepo.searchUsersRealtime($('#search-input').val())[0].id);
-                domUpdates.updateUserData(user, userRepo.searchUsersRealtime($('#search-input').val())[0].id)
+                let usersId = userRepo.searchUsersRealtime($('#search-input').val())[0].id;
+                console.log('activeUser before', activeUser);
+                activeUser = userRepo.searchUsersRealtime($('#search-input').val())[0].name;
+                console.log('activeUser userId', activeUser);
+                domUpdates.updateUserData(user, usersId);
+                console.log('usersId is', usersId);
+                //updateOrdersUser(userRepo.searchUsersRealtime(($('#search-input').val())[0].id, dateToday));
+                domUpdates.getUserRoomServiceDataDate(usersId, dateToday, roomServices, activeUser);
+                $('#rs-order-date').text($('#search-rsdate').val());
               }
           } else {
             $('#tab-select-user').text('No user exists with that name');
@@ -163,7 +176,9 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
     
   });
 
-  function selectUser() {
+  function updateOrdersUser(userID, date) {
+    console.log('updateOrdersUser ', userID, date);
+    
 
   };
  

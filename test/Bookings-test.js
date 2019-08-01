@@ -47,6 +47,8 @@ describe('Booking', function() {
     expect(booking.getMostPopularBookingDate()).to.deep.equal("2019/07/25")
   });
 
-
+  it('Should be able to book a room', function () {
+    expect(booking.addRoomBooking(22, "2019/07/25", 14)).to.deep.equal([{userID: 22, date: "2019/07/25", roomNumber: 14}]);
+  });
 
 });

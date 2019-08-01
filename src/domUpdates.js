@@ -25,6 +25,21 @@ let domUpdates = {
     });  
   },
 
+  getUserRoomServiceDataDate(userId, date, roomServices, userName)  {
+    $('#room-service-orders-user').html(' ');
+    $('.room-service-orders-initial').hide();
+    $('#rs-order-date').html(userName);
+    const dailyRoomServiceUser = roomServices.getUserRoomServiceDataDate(userId, date);
+    console.log('dailyRoomServicesUser are', dailyRoomServiceUser);
+    dailyRoomServiceUser.forEach(element => {
+      const rsDate = element[0];
+      const rsFood = element[1];
+      const rsTotalCoat = (parseFloat(element[2])).toFixed(2) + ' \n';
+      $('#room-service-orders-user').append(`Food:  ${rsFood}    Cost: ${rsTotalCoat.replace("\n", "<br>")}`);
+      console.log('roomservicefood', rsFood);
+    });
+  },
+
   updateRoomsAvailableDate(roomsAvailable) {
    
     roomsAvailable.forEach(room => {
