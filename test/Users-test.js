@@ -16,15 +16,15 @@ let user;
 describe('Users', function() {
 
   it('should return all user info for a given user', function() {
-    expect(user.getUserData(8)).to.deep.equal({
-      id: 8,
-      name: "Zachery Abbott"
+    expect(user.getUserData(2)).to.deep.equal({
+      id: 2,
+      name: "Chadrick Lowe"
       });
   });
 
   it('should be able to add a new user, return new user info', function() {
     expect(user.addNewUser("Victor McPherson")).to.deep.equal({
-      id: 31,
+      id: 5,
       name: "Victor McPherson"
       });
   });

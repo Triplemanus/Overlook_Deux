@@ -1,7 +1,7 @@
 class Bookings {
   constructor (bookingData) {
     this.data = bookingData.bookings;
-    this.customerID = 34;
+    //this.customerID = 34;
     // this.userID = userID;
     // this.roomNumber = bookingData.roomNumber;
     // this.date = bookingData.date;
@@ -17,7 +17,9 @@ class Bookings {
   }
 
   getTotalBookingsCustomer(customerID) {
+//    console.log('this.data is ', this.data);
     let allCustomerBookings = this.data.filter(booking => {
+//      console.log('customerID is', customerID, booking.userID);
       if(booking.userID === customerID) return booking;
     });
     return allCustomerBookings;
@@ -25,8 +27,11 @@ class Bookings {
 
   getTotalBookingsDate(date) {
     let allDateBookings = this.data.filter(booking => {
+    //  console.log('date is ', date);
+    //  console.log('booking.date', booking.date);
       if(booking.date === date) return booking;
     });
+   // console.log('allDateBookings', allDateBookings  );
     return allDateBookings;
   }
 
@@ -40,20 +45,7 @@ class Bookings {
       //console.log('mostBookings is ', mostBookings);
       return mostBookings;
     }, {});
-   // const mpbKeys = Object.keys(mostPopularBooking);
-   // console.log('mpbKeys is ', mpbKeys, mostPopularBooking);
-
-    // let mostPopularBookingDate = {}
-    // for (let [key, value] of Object.entries(mostPopularBooking)) {
-    //   console.log(`${key}: ${value}`);
-    //   console.log('key, value is', key, value)
-    //   console.log(Object.values(mostPopularBookingDate))
-    //   if(value > Object.values(mostPopularBookingDate)) {
-    //     mostPopularBookingDate = mostPopularBooking;
-    //     console.log('mostPopularBookingDate is ', mostPopularBookingDate);
-    //   }
-
-    // }
+  
     const mostPopularBookingDate = Object.keys(mostPopularBooking).reduce((popularDate, booking) => {
     //  console.log('booking[date], popularDate is ', mostPopularBooking[booking], popularDate);
       if(mostPopularBooking[booking] > popularDate.count) {

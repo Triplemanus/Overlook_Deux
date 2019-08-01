@@ -15,10 +15,7 @@ let booking;
 
   beforeEach(() => {
     booking = new Bookings(bookingsData);
-//     {name: "Jon", score: 100}, 
-//     {name: "Chris", score: 100}, 
-//     {name: "Alyssa", score: 150}
-//   ], [] )
+
  });
 
 describe('Booking', function() {
@@ -36,26 +33,20 @@ describe('Booking', function() {
     expect(booking.getTotalBookingsCustomer(34)).to.deep.equal([{userID: 34, date: "2019/09/05", roomNumber: 26}]);
   })
   it('should return all bookings for a given day', function() {
+    expect(booking.getTotalBookingsDate("2019/09/01")).to.deep.equal([{userID: 9, date: "2019/09/01", roomNumber: 41}, {userID: 25, date: "2019/09/01", roomNumber: 44}, {
+      userID: 97,
+      date: "2019/09/01",
+      roomNumber: 14
+      }]);
+  });
+  it.skip('should return all bookings for a given day', function() {
     expect(booking.getTotalBookingsDate("2019/09/01")).to.deep.equal([{userID: 9, date: "2019/09/01", roomNumber: 41}, {userID: 25, date: "2019/09/01", roomNumber: 44}]);
   });
 
   it('Should return date with most bookings', function () {
-    expect(booking.getMostPopularBookingDate()).to.deep.equal("2019/09/01")
-  })
+    expect(booking.getMostPopularBookingDate()).to.deep.equal("2019/07/25")
+  });
 
-
-//   it('should return a string with any punctuation removed', function() {
-//     expect(round.evaluateTestGuess('St. Paul', 'St. Paul')).to.equal(true);
-//     expect(round.evaluateTestGuess('St Paul', 'St. Paul')).to.equal(true);
-//     expect(round.evaluateTestGuess('St Paul!', 'St. Paul')).to.equal(true);
-//     expect(round.evaluateTestGuess('st paul', 'St. Paul')).to.equal(true);
-//     expect(round.evaluateTestGuess('Saint Paul', 'St. Paul')).to.equal(false);
-//   });
-
-//   it('should update scores', function() {
-//     round.updateScores(100);
-//     expect(domUpdates.populatePlayerDashboard).to.have.been.called(4);
-//   });
 
 
 });

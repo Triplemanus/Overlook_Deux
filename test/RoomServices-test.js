@@ -43,7 +43,7 @@ describe('RoomServices', function() {
   });
 
   it('should return roomservice charges for all time, by date for a given user', function() {
-    expect(roomServices.getUserRoomServiceDataAllTime(100)).to.deep.equal([["2019/10/19", 17.33]]);
+    expect(roomServices.getUserRoomServiceDataAllTime(55)).to.deep.equal([["2019/10/19", 17.33]]);
   });
 
 });

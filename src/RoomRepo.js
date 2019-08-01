@@ -29,6 +29,16 @@ class RoomRepo {
     return roomsAvailable - totalBookings.length;
   }
 
+  allRoomsAvailableDate(date, totalBookingsDate) {    
+    let roomsAvailable = this.data.rooms.reduce((roomsAvail, room) => {
+      if(!totalBookingsDate.find(bookedRoom => bookedRoom.roomNumber === room.number)) roomsAvail.push(`Room: ${room.number} : ${room.roomType} : ${room.numBeds} : ${room.bedSize} : ${room.bidet}\n`); 
+
+      return roomsAvail;
+    }, []);
+    console.log('roomsAvailableDate is', roomsAvailable);
+    return roomsAvailable;
+  }
+
   totalRoomsAvailable() {
     const roomsAvailable = this.data.rooms.reduce((roomsAvail, room) => {
       roomsAvail ++;

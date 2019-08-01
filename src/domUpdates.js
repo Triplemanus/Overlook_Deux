@@ -23,7 +23,26 @@ let domUpdates = {
       const rsTotalCoat = (parseFloat(element.totalCost)).toFixed(2) + ' \n';
       $('#room-service-orders').append(`Food:  ${rsFood}    Cost: ${rsTotalCoat.replace("\n", "<br>")}`);
     });  
-  }
+  },
+
+  updateRoomsAvailableDate(roomsAvailable) {
+   
+    roomsAvailable.forEach(room => {
+      const raNumber = room.number;
+      const raRoomType = room.roomType;
+      const raRoomBeds = room.numBeds;
+      const raRoomBedSize = room.bedSize;
+      const raRoomDisplay = '';
+      $('#available-rooms-date').append(room.replace("\n", "<br>"));
+     // $('#available-rooms-date').append(`Room:  ${raNumber}    Type: ${raRoomType}`);/*.replace("\n", "<br>");*/
+    })
+   
+    //   const rsTotalCoat = (parseFloat(element.totalCost)).toFixed(2) + ' \n';
+    //   $('#room-service-orders').append(`Food:  ${rsFood}    Cost: ${rsTotalCoat.replace("\n", "<br>")}`);
+    
+  },
+
+
   
 }
 

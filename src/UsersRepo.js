@@ -11,6 +11,7 @@ class UsersRepo {
   }
 
   getAllUserData() {
+    console.log('usersData is ', this.data);
     return this.data.filter(user => user);
   }
 }

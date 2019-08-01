@@ -97,12 +97,23 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
         $('#most-rooms-available').text(bookings.getDateMostRoomsAvailable(bookingData));
       } else {
       $('#most-popular-date').html(' ');
-      }
+      };
+
+      $('#search-rooms-date').keyup((e) => {
+        if(e.keyCode == 13)
+          {
+            let totalBookingsDate = bookings.getTotalBookingsDate(dateToday);
+            let roomSearchDate =  roomRepo.allRoomsAvailableDate($('#search-rooms-date').val(), totalBookingsDate);
+            $('#search-rooms-date').text  (' ');
+            domUpdates.updateRoomsAvailableDate(roomSearchDate);
+            
+           // $('#available-rooms-date').text(roomSearchDate);
+          }
+      });
 
 
         /*----Orders----*/
       if(currentAttrValue === '#tab3'){
-        console.log('tab3 Active!', $('#tab3'));
         domUpdates.updateDailyRoomServices(dateToday, roomServiceData, roomServices);
       } else {
         $('#room-service-orders').html(' ');
@@ -144,6 +155,7 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
             domUpdates.updateUserData(user, userID.id)
           }
       });
+      
     });
    
   //  $('#steps-container__main').hide();
@@ -154,24 +166,4 @@ fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
   function selectUser() {
 
   };
-  // thing1 = fetch('');
-  // thing1 = fetch('');
-  // thing1 = fetch('');
-  // thing1 = fetch('');
-
-  // let myHotel;
-
-  // Promise.all[things 1-4];
-  // .then( myHotel = new Hotel(promise))
-  // .then (myHotel.open())
-  // 
-  // open(){ 
-  // this.customers = users.forEach {
-  //   this.customers.push( new Customer(id, name, bookings, rmService)
-  // }
-  // 
-  // hotel.currentCustomer
-
-  // let bookings = getBookingsData(); 
-  // console.log(Object.values(bookings.bookings));
-
+ 

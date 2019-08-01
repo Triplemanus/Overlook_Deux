@@ -15,15 +15,15 @@
       <figure class="aside-user-info-container">
         <section class="aside__fullname-container user-info-container">
           <label class="aside__fullname-label user-label">CUSTOMER NAME</label>
-          <h3 class="aside__fullname user-info">Wiley E. Coyote</h3>
+          <h3 class="aside__fullname user-info">Wile E. Coyote</h3>
         </section>
         <section class="aside__address-container user-info-container">
           <label class="aside__address-label user-label">ADDRESS</label>
-          <h3 class="aside__address user-info">usersaddress</h3>
+          <h3 class="aside__address user-info">1234 Looney Tunes Lane</h3>
         </section>
         <section class="aside__email-container user-info-container">
           <label class="aside__email-label user-label">E-MAIL</label>
-          <h3 class="aside__email user-info">usersemail</h3>
+          <h3 class="aside__email user-info">lookingforRoadRunners@coyotetunes.com</h3>
         </section>
         <!-- <section class="aside__stride-length-container user-info-container">
           <label class="aside__stride-length-label user-label">STRIDE LENGTH</label>
@@ -64,13 +64,16 @@
                 <figure class="steps__daily-goal-container widget green">
                   <h3 class="steps__daily-goal-header widget-header">Most Rooms Avalable: <span id="most-rooms-available" class="most-rooms-available__main"></span></h3>
                 </figure>
+                <figure>
+                  <p>Enter Date to Search: <input id="search-rooms-date" placeholder="2019/01/01" type="text" name="" value=""></p>
+                </figure>
                 <figure class="steps__header-container widget green-b">
-                  <h3 class="steps__daily-goal-header widget-header"><span id="un-occupied" class="un-occupied__main"></span></h3>
+                  <h3 class="steps__daily-goal-header widget-header"><span id="available-rooms-date" class="available-rooms-date__main"> </span></h3>
                 </figure>
               </section>
             </section>
           </div>          
-          <div id="tab3" class="tab">
+          <div id="tab3" class="tab rooms">
             <!-- <section class="main__column-one"> -->
               <section class="steps-container" id="steps-container__main">
                 <figure class="steps__daily-goal-container widget green">
@@ -81,20 +84,29 @@
                 </figure>                
                 <figure class="steps__header-container widget green-b">
                   <h3 class="user-header widget-header">Select Date: <span id="tab-select-rsdate" class="tab-select-rsdate__main"></span></h3>
-                  <input id="search-rsdate" placeholder="20019/01/01" type="text" name="" value="">
+                  <input id="search-rsdate" placeholder="2019/01/01" type="text" name="" value="">
                   <button id="search-room-service-date" name="Search">Search: </button>
                 </figure>
               </section>
             <!-- </section> -->
           </div>
           <figure id="tab4" class="tab">
-            <h3 class="user-header widget-header">Occupant: <span id="tab-user-info" class="tab-user-info__main"></span></h3>
-            <h3 class="user-header widget-header">Select Customer: <span id="tab-select-user" class="tab-select-user__main"></span></h3>
-            <input id="search-input" placeholder="   Search ideas" type="text" name="" value="">
-            <h3 class="new-user-header widget-header"> <span id="tab-new-user-info" class="tab-new-user-info__main"></span></h3>
-            <h3 class="new-user-header widget-header">Enter new customer: <span id="tab-new-user" class="tab-new-user__main"></span></h3>
-            <input id="new-user-input" placeholder="   Add new user" type="text" name="" value="">
-          </figure>
+            <section class="main__column-one">
+              <section class="steps-container" id="step-container__main">
+                <figure class="steps__header-container widget green-b">
+                <h3 class="user-header widget-header">Current Customer: <span id="tab-user-info" class="tab-user-info__main"></span></h3>
+                </figure>
+                <figure class="steps__daily-goal-container widget green">
+                <h3 class="user-header widget-header">Select Customer: <span id="tab-select-user" class="tab-select-user__main"></span></h3>
+                <input id="search-input" placeholder="   Search ideas" type="text" name="" value="">
+                <h3 class="new-user-header widget-header"> <span id="tab-new-user-info" class="tab-new-user-info__main"></span></h3>
+                </figure>
+                <figure class="steps__daily-goal-container widget green">
+                <h3 class="new-user-header widget-header">Enter new customer: <span id="tab-new-user" class="tab-new-user__main"></span></h3>
+                <input id="new-user-input" placeholder="   Add new user" type="text" name="" value="">
+              </figure>
+            </section>
+          </section>
         </div>
       </div>
     </main>
